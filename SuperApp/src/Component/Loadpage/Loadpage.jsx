@@ -13,33 +13,63 @@ function Loadpage() {
     Mobile: ''
   })
 
+
+
+  let [checked, setchecked] = useState()
   let [formerror, setformerror] = useState({})
   let [submit, setsubmit] = useState(false)
+
+  let handlecheck = (e) => {
+    setchecked(e.target.checked)
+    console.log(e)
+  }
 
   let handleform = (e) => {
 
     let { name, value } = e.target
     setform({
       ...form,
-      [name]: value
+      [name]: value,
     })
 
 
   }
   let validateform = (value) => {
+    let regix = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let test = regix.test(form.Email)
     let error = {}
+
+    // name
     if (!value.Name) {
       error.Name = 'Field is required';
+    } else if (value.Name.length < 3 || value.Name.length > 10) {
+      error.Name = 'Name should be more than 3 and less than 10  character '
     }
+    // username
     if (!value.UserName) {
       error.UserName = 'Field is required';
     }
+
+    // email
     if (!value.Email) {
       error.Email = 'Field is required';
+    } else if (!test) {
+      error.Email = 'Enter a valid Email address'
     }
+
+    // mobile
     if (!value.Mobile) {
       error.Mobile = 'Field is required';
+    }else if(value.Mobile.length<10){
+      error.Mobile="Enter a valid mobile number"
     }
+
+    // checkbox
+    if (checked === false) {
+      error.ischecked = 'Check this box if you want to proceed!'
+    }
+
+
     return error;
 
   }
@@ -50,12 +80,12 @@ function Loadpage() {
     setsubmit(true);
   }
 
-  useEffect(() => {
-    console.log(formerror)
-    if (Object.keys(formerror).length === 0 && submit) {
-      console.log(form)
-    }
-  }, [formerror])
+  // useEffect(() => {
+  //   console.log(formerror)
+  //   if (Object.keys(formerror).length === 0 && submit) {
+  //     console.log(form)
+  //   }
+  // }, [formerror])
 
   return (
     <>
@@ -94,7 +124,7 @@ function Loadpage() {
                 onChange={handleform} />
               <p style={{ color: 'red' }}>{formerror.UserName}</p>
 
-              <input type="email"
+              <input type="text"
                 placeholder='Email'
                 name='Email'
                 value={form.Email}
@@ -110,9 +140,9 @@ function Loadpage() {
               <p style={{ color: 'red' }}>{formerror.Mobile}</p>
 
               <div className="checkbox">
-                <input type="checkbox" id='checkbox' />
+                <input type="checkbox" id='checkbox' name='ischecked' checked={form.ischecked} onChange={handlecheck} />
                 <label htmlFor='checkbox' style={{ color: '#7C7C7C' }}>&nbsp; Share my registration data with Superapp</label>
-                <p></p>
+                <p style={{ color: 'red' }}>{formerror.ischecked}</p>
               </div>
               <button type='submit'>Sign Up</button>
               <div className="bottomhead">

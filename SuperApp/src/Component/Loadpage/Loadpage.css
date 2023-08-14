@@ -99,6 +99,10 @@
 .input-area>form>p {
     margin: 12px;
 }
+button:active{
+    scale: 0.9;
+
+}
 
 
 
