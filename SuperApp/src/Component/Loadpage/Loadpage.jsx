@@ -21,7 +21,7 @@ function Loadpage() {
 
   let handlecheck = (e) => {
     setchecked(e.target.checked)
-    console.log(e)
+
   }
 
   let handleform = (e) => {
@@ -60,8 +60,8 @@ function Loadpage() {
     // mobile
     if (!value.Mobile) {
       error.Mobile = 'Field is required';
-    }else if(value.Mobile.length<10){
-      error.Mobile="Enter a valid mobile number"
+    } else if (value.Mobile.length < 10) {
+      error.Mobile = "Enter a valid mobile number"
     }
 
     // checkbox
@@ -71,13 +71,21 @@ function Loadpage() {
 
 
     return error;
-
   }
 
+
+
   let handleSubmit = (e) => {
+
     e.preventDefault();
     setformerror(validateform(form));
-    setsubmit(true);
+    if (Object.keys(formerror).length === 0) {
+      localStorage.setItem('formdata', JSON.stringify(form));
+      setsubmit(true);
+      console.log(formerror);
+      console.log(form);
+
+    }
   }
 
   // useEffect(() => {
@@ -115,7 +123,7 @@ function Loadpage() {
                 name='Name'
                 value={form.Name}
                 onChange={handleform} />
-              <p style={{ color: 'red' }}>{formerror.Name}</p>
+              <p style={{ color: 'red' }}>{formerror.Name} </p>
 
               <input type="text"
                 placeholder='UserName'
