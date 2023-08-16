@@ -32,18 +32,23 @@ function Loadpage() {
       [name]: value,
     })
 
+    useEffect(()=>{
+console.log(formerror);
+
+    },[formerror])
+
 
   }
   let validateform = (value) => {
     let regix = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    let test = regix.test(form.Email)
-    let error = {}
+    let test = regix.test(form.Email);
+    let error = {};
 
     // name
     if (!value.Name) {
       error.Name = 'Field is required';
     } else if (value.Name.length < 3 || value.Name.length > 10) {
-      error.Name = 'Name should be more than 3 and less than 10  character '
+      error.Name = 'Name should be more than 3 and less than 10  character ';
     }
     // username
     if (!value.UserName) {
@@ -54,14 +59,14 @@ function Loadpage() {
     if (!value.Email) {
       error.Email = 'Field is required';
     } else if (!test) {
-      error.Email = 'Enter a valid Email address'
+      error.Email = 'Enter a valid Email address';
     }
 
     // mobile
     if (!value.Mobile) {
       error.Mobile = 'Field is required';
     } else if (value.Mobile.length < 10) {
-      error.Mobile = "Enter a valid mobile number"
+      error.Mobile = "Enter a valid mobile number";
     }
 
     // checkbox
@@ -78,8 +83,10 @@ function Loadpage() {
   let handleSubmit = (e) => {
 
     e.preventDefault();
-    setformerror(validateform(form));
-    if (Object.keys(formerror).length === 0) {
+    const errors=validateform(form);
+    setformerror(errors);
+    console.log(formerror);
+    if (Object.keys(errors).length === 0) {
       localStorage.setItem('formdata', JSON.stringify(form));
       setsubmit(true);
       console.log(formerror);
