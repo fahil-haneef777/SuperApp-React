@@ -1,0 +1,24 @@
+.main{
+    background-color: black;
+}
+.Left{
+   display: flex;
+   flex-direction: column;
+   flex: 2;
+}
+.Right{
+display: flex;
+flex: 1;
+}
+.top-left-top{
+    background-color: #5746EA;
+    height: 34vh;
+    width:28vw ;
+    margin: 5vh;
+    border-radius: 20px;
+}
+.top-left-top>img{
+    scale: 0.7;
+    position:relative;
+    bottom: 2vh;
+}

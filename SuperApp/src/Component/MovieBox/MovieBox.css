@@ -1,0 +1,35 @@
+.box {
+    height: 23vh;
+    width: 12vw;
+    border: none;
+    border-radius: 12px;
+ 
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.1s;
+  }
+  .box:hover{
+    scale: 1.1;
+  }
+.box:active{
+
+    scale: 1;
+}
+  .box-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: white;
+    text-align: left;
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+  #box-image {
+    height: 12vh;
+    width: 11vw;
+    margin-top: 1rem;
+    margin-left: 1vh;
+  }
+
+  .selected {
+    border: 4px solid #11b800;
+  }

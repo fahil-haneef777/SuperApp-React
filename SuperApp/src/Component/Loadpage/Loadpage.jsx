@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom"
 import '../../fonts/font.css'
 import './Loadpage.css'
 
 import leftimg from '../../asset/left.jpg'
 
 function Loadpage() {
+  const navigate = useNavigate();
 
   let [form, setform] = useState({
     Name: '',
@@ -15,9 +17,11 @@ function Loadpage() {
 
 
 
+
   let [checked, setchecked] = useState()
   let [formerror, setformerror] = useState({})
   let [submit, setsubmit] = useState(false)
+
 
   let handlecheck = (e) => {
     setchecked(e.target.checked)
@@ -32,10 +36,7 @@ function Loadpage() {
       [name]: value,
     })
 
-    useEffect(()=>{
-console.log(formerror);
 
-    },[formerror])
 
 
   }
@@ -83,7 +84,7 @@ console.log(formerror);
   let handleSubmit = (e) => {
 
     e.preventDefault();
-    const errors=validateform(form);
+    const errors = validateform(form);
     setformerror(errors);
     console.log(formerror);
     if (Object.keys(errors).length === 0) {
@@ -91,16 +92,12 @@ console.log(formerror);
       setsubmit(true);
       console.log(formerror);
       console.log(form);
+      navigate('/Category')
 
     }
   }
 
-  // useEffect(() => {
-  //   console.log(formerror)
-  //   if (Object.keys(formerror).length === 0 && submit) {
-  //     console.log(form)
-  //   }
-  // }, [formerror])
+
 
   return (
     <>
@@ -159,7 +156,7 @@ console.log(formerror);
                 <label htmlFor='checkbox' style={{ color: '#7C7C7C' }}>&nbsp; Share my registration data with Superapp</label>
                 <p style={{ color: 'red' }}>{formerror.ischecked}</p>
               </div>
-              <button type='submit'>Sign Up</button>
+              <button type='submit' >Sign Up</button>
               <div className="bottomhead">
                 <p style={{ color: '#7C7C7C', margin: '20px 0 0 0' }}>By clicking on Sign up. you agree to Superapp <span className='green'>Terms and <br />  Conditions of Use</span></p>
                 <p style={{ color: '#7C7C7C', margin: '4px 0 0 0' }}>To learn more about how Superapp collects, uses, shares<br /> and protects your personal data please head Superapp <span className='green'>Privacy<br /> Policy</span></p>
@@ -181,43 +178,3 @@ console.log(formerror);
 
 export default Loadpage
 
-{/* <div className="hero-r">
-          <p>SuperApp</p>
-          <p> Create your new account</p>
-          <div className="inputForm">
-
-
-
-            <form onSubmit={Validateform}>
-              <input type='text' name='Name' value={form.Name} onChange={handleform} placeholder='Name' />
-              <p></p>
-              <input type='text' name='UserName' value={form.UserName} onChange={handleform} placeholder='UserName' />
-              <p></p>
-              <input type='email' name='Email' value={form.Email} onChange={handleform} placeholder='Email' />
-              <p></p>
-              <input type='tel' name='Mobile' value={form.Mobile} onChange={handleform} placeholder='Mobile' />
-              <p></p>
-              <div className='checkbox'>
-
-                <input type='checkbox' id='checkbox' />
-                <label htmlFor='checkbox'>&nbsp; Share my registration data with Superapp</label>
-
-              </div>
-              <button type='submit'>Sign Up</button>
-
-              <p style={{ color: '#7C7C7C' }}>By clicking on Sign up. you agree to Superapp <span style={{ color: ' #72DB73' }}>Terms and<br />  Conditionsof Use</span></p>
-              <p style={{ color: '#7C7C7C', }}>To learn more about how Superapp collects, uses, shares<br /> and protects your personal data please head Superapp<br /> <span style={{ color: ' #72DB73' }}>Privacy Policy</span></p>
-
-
-            </form>
-          </div>
-
-
-
-
-
-
-
-
-
-        </div> */}
