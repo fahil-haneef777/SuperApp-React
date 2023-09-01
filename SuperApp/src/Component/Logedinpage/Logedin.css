@@ -1,24 +1,229 @@
-.main{
+.main {
     background-color: black;
 }
-.Left{
-   display: flex;
-   flex-direction: column;
-   flex: 2;
+
+.Left {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
 }
-.Right{
-display: flex;
-flex: 1;
+
+.Right {
+    display: flex;
+    flex: 1;
 }
-.top-left-top{
+
+.top-left-top {
     background-color: #5746EA;
-    height: 34vh;
-    width:28vw ;
+    height: 36vh;
+    width: 28vw;
     margin: 5vh;
     border-radius: 20px;
 }
-.top-left-top>img{
+
+.top-left-top>img {
     scale: 0.7;
-    position:relative;
+    position: relative;
     bottom: 2vh;
+}
+
+.Formdatainfo {
+    position: absolute;
+    top: 6vh;
+    left: 11vw;
+    font-size: larger;
+    margin-top: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+
+.Formdatainfo>:nth-child(3) {
+    font-weight: 900;
+    font-size: 30px;
+    margin-top: 8px;
+
+
+}
+
+.Formdatainfo>:nth-child(2) {
+    margin: 0;
+    margin-top: 8px;
+}
+
+.Formdatainfo>:nth-child(1) {
+    margin: 0;
+
+}
+
+.SelectedCat {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 300px;
+    gap: 1vh;
+    position: absolute;
+    top: 23vh;
+    left: 10vw;
+
+
+}
+
+.item {
+    background-color: #9F94FF;
+    height: 4vh;
+    width: 6vw;
+    margin: 1px;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 3px;
+    font-size: large;
+
+}
+
+/* text area */
+
+.textarea {
+    position: absolute;
+    top: 5vh;
+    left: 33vw;
+    font-size: large;
+    font-weight: 600;
+    border-radius: 20px;
+    background-color: #F1C75B;
+    padding: 2vw;
+    padding-top: 10vh;
+    box-sizing: border-box;
+    border: none;
+}
+
+.top-head {
+    color: black;
+    position: absolute;
+    top: 5vh;
+    left: 35vw;
+    z-index: 2;
+}
+
+.top-left-bottom {
+
+    height: 20vh;
+    width: 28vw;
+    margin: 5vh;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.pink {
+    height: 30%;
+    width: 28vw;
+    background-color: #FF4ADE;
+    color: white;
+    text-align: center;
+    font-size: 23px;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
+
+}
+
+.blue {
+    height: 70%;
+    width: 28vw;
+    background-color: #101744;
+    color: white;
+}
+
+.time {
+    position: relative;
+    top: 1vh;
+}
+
+.line {
+    height: 5vh;
+    width: 0.2vw;
+    background-color: grey;
+
+}
+
+.line.l {
+    position: relative;
+    left: 8vw;
+    bottom: 5vw;
+    margin: 0;
+    padding: 0;
+    width: 0.2vw;
+
+}
+
+.line.r {
+    position: relative;
+    left: 18.5vw;
+    bottom: 25.5vh;
+    width: 0.25vw;
+    margin: 0;
+    padding: 0;
+}
+
+.cloud {
+    scale: 0.7;
+    position: relative;
+    left: 1vw;
+    margin: 0;
+    padding: 0;
+}
+
+.weather {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: min-content;
+    position: relative;
+    left: 2vw;
+bottom: 2vh;
+font-size: 14px;
+margin: 0;
+}
+.middleweather{
+    color: white;
+    margin: 0;
+position: relative;
+   
+}
+.temp{
+    position:relative;
+    bottom: 19vh;
+    left: 10vw;
+    font-size: 33px;
+    padding: 0;
+    margin: 0;
+}
+.pressure{
+    position: relative;
+    color: white;
+    bottom: 17.4vh;
+    left: 10vw;
+
+}
+.wind{
+    position: relative;
+    bottom: 33.5vh;
+    left: 20vw;
+}
+.windtext{
+    display: flex;
+    position: relative;
+    bottom: 4.5vh;
+    left: 2.5vw;
+}
+.humidity{
+    position: relative;
+    bottom: 36vh;
+    left: 20vw;
+}
+.humiditytext{
+    display: flex;
+    position: relative;
+    bottom: 4vh;
+    left: 1.8vw;
 }
